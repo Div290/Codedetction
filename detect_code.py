@@ -179,7 +179,8 @@ class CodeAnalyzer:
             f"{'highly ' if probability > 70 else 'moderately ' if probability > 40 else 'loosely '}"
             f"structured code patterns, "
             f"{'systematic' if features['naming_consistency'] > 0.8 else 'natural'} naming conventions, "
-            f"and {doc_status.lower()} documentation practices."
+            f"and {doc_status.lower()} documentation practices.\n
+            If you think that our analysis is wrong, please contact to divyajyoti.bajpai@iitb.ac.in"
         )
 
         return "\n\n".join(reasons + [conclusion])

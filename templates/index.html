@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0"><i class="fas fa-upload me-2"></i>Upload Code for AI Detection</h4>
+            </div>
+            <div class="card-body">
+                <div class="upload-container">
+                    <form id="uploadForm" class="text-center">
+                        <div class="upload-area mb-4" id="dropZone">
+                            <i class="fas fa-cloud-upload-alt fa-3x mb-3"></i>
+                            <p class="mb-2">Drag and drop your code file here</p>
+                            <p class="text-muted small">or</p>
+                            <input type="file" id="fileInput" class="d-none" accept=".txt,.py,.js,.java,.cpp,.c,.cs,.php,.html,.css,.sql,.ipynb">
+                            <button type="button" class="btn btn-secondary" id="browseButton">
+                                Browse Files
+                            </button>
+                        </div>
+
+                        <div id="fileInfo" class="d-none mb-3">
+                            <div class="alert alert-info">
+                                <i class="fas fa-file-code me-2"></i>
+                                <span id="fileName"></span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary d-none" id="submitButton">
+                            <span class="spinner-border spinner-border-sm d-none" id="loadingSpinner" role="status"></span>
+                            Analyze Code
+                        </button>
+                    </form>
+                </div>
+
+                <div id="result" class="mt-4 d-none">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Analysis Result</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="result-content">
+                                <div class="probability-display">
+                                    <div class="progress mb-3">
+                                        <div class="progress-bar" id="probabilityBar" role="progressbar"></div>
+                                    </div>
+                                    <p class="text-center mb-0">
+                                        AI Generation Probability: <span id="probabilityValue" class="fw-bold"></span>
+                                    </p>
+                                </div>
+                                <div class="mt-4" id="reasoningSection">
+                                    <h6 class="mb-3">Analysis Details:</h6>
+                                    <div class="alert alert-secondary" id="reasoningText"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+{% endblock %}

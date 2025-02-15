@@ -144,7 +144,7 @@ class CodeAnalyzer:
         reasons = []
 
         # Code structure analysis
-        reasons.append(f"Code Structure Analysis:\n"
+        reasons.append(f"Divya's Code Structure Analysis suggests that:\n"
                      f"- Average line length: {features['avg_line_length']:.1f} characters\n"
                      f"- Blank line ratio: {features['blank_line_ratio']:.1%}\n"
                      f"- Maximum indentation depth: {features['max_indent_depth']} levels\n"
